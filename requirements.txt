@@ -1,0 +1,4 @@
+mpmath==1.2.1
+multipledispatch==0.6.0
+six==1.16.0
+sympy==1.11.1
