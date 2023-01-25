@@ -2,10 +2,12 @@
 Solve 0.1
 Licensed under GPL 3.0, by Andy Zhang
 """
-from src.interface import ask_equation, expand
+from src.interface import ask_equation, expand, welcome
 from src.solver import find_symbol, print_res, solve_equation
 
-if __name__ == "__main__":
+
+def solve():
+    welcome()
     while True:
         s = ask_equation()
         if s == "exit":
@@ -19,3 +21,7 @@ if __name__ == "__main__":
             print_res(symbol, solve_equation(symbol, lhs, float(rhs)))
         except ValueError:
             print("Error: Invalid equation")
+
+
+if __name__ == "__main__":
+    solve()
