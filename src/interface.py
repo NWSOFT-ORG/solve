@@ -4,8 +4,11 @@ def ask_equation() -> str:
 
 
 def expand(equation: str) -> tuple:
-    lhs = equation.split("=")[0]
-    rhs = equation.split("=")[1]
+    try:
+        lhs = equation.split("=")[0]
+        rhs = equation.split("=")[1]
+    except IndexError:
+        return None, None
 
     return lhs, rhs
 

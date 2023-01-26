@@ -15,12 +15,16 @@ def solve():
         equation = expand(s)
         lhs = equation[0]
         rhs = equation[1]
+        if lhs is None or rhs is None:
+            print("Error: Invalid equation")
+            continue
         symbol = find_symbol(lhs)
 
         try:
             print_res(symbol, solve_equation(symbol, lhs, float(rhs)))
         except ValueError:
             print("Error: Invalid equation")
+            continue
 
 
 if __name__ == "__main__":

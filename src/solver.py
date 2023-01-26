@@ -1,5 +1,5 @@
 from multipledispatch import dispatch
-from sympy import Eq, init_printing, parse_expr, pprint, solve, Symbol
+from sympy import Eq, init_printing, parse_expr, pprint, pretty, solve, Symbol
 
 init_printing(use_unicode=True)
 
@@ -64,13 +64,11 @@ def solve_equation(unknown: str, eq: str, equals: float):
 def print_res(unknown: str, res: list):
     if len(res) == 0:
         print("=> No solution")
-    elif len(res) == 1:
-        print(f"=> {unknown} = {res[0]}")
     else:
-        print(f"=> Total {len(res)} solutions")
-        print("=>    ", end="")
+        print(f"=> Total {len(res)} solution{'s' if len(res) > 1 else ''}")
+        print("=>    \n", end="")
         for i, r in enumerate(res):
-            print(f"{unknown} = {r}\n", end="")
+            print(f"{unknown} =\n{pretty(r)}\n", end="")
             if i != len(res) - 1:
                 print("=> or ", end="")
 
